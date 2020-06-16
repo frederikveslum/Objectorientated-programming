@@ -38,8 +38,7 @@ if __name__ == "__main__":
         intake = 0
         my_account_balance = Account(intake,whitdrawal,rent,amount)
         print(my_account_balance)
-    def notworkingfunc():
-        print("Here nothing is happening. This is done to try the version control on github")
+    
     '''
     if intake_choice == True:
         intake = int(input('How much money do you want to intake:'))
