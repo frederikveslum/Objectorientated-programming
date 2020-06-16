@@ -18,40 +18,43 @@ class Account(object):
         '''amount = amount + the rent of the amount - the takeout'''
         self.amount = self.amount + self.amount * self.rent - self.whitdrawal
         return self.amount
+    
 
 
 if __name__ == "__main__":
     intake_choice = False
     whitdrawal_choice = False
-    intake = str(input('Do tou want to intake or whitdraw money: [y/n]: '))
-    if intake[0].lower == 'y':
-        #intake_choice == True 
-        #return intake_choice
-        intake = input('How much money do you want to intake:')
-        whitdrawal = 0
-        my_account_balance = Account(intake,whitdrawal,rent,amount)
-        print(my_account_balance)
-    elif intake[0].lower == 'n':
-        #whitdrawal_choice == True
-        #return whitdrawal_choice
-        whitdrawal = input('How much money do you want to whitdraw:')
-        intake = 0
-        my_account_balance = Account(intake,whitdrawal,rent,amount)
-        print(my_account_balance)
-    
-    '''
+    rent = 0.05
+    amount = 100
+    intake = str(" ")
+    while intake[0].lower() != 'i' or intake[0].lower() != 'w':
+        intake = str(input('Do you want to intake or whitdraw money: [i/w]: '))
+        if intake[0].lower() == 'i':
+            intake = int(input('How much money do you want to intake:'))
+            while intake <0:
+                intake = int(input('Negative number not permitted; how much money do you want to intake:'))
+            intake_choice = True
+            whitdrawal_choice = False
+            whitdraw = 0
+            break
+        elif intake[0].lower() == 'w':
+            whitdraw = int(input('How much money do you want to whitdraw:'))
+            while whitdraw <0:
+                whitdraw = int(input('Negative number not permitted; how much money do you want to whitdraw:'))
+            whitdrawal_choice = True
+            intake_choice = False
+            intake = 0
+            break
     if intake_choice == True:
-        intake = int(input('How much money do you want to intake:'))
-        whitdrawal = 0
-        my_account_balance = Account(intake,whitdrawal,rent,amount)
-        print(my_account_balance)
-
+        amount_in_bank = Account(intake,whitdraw,rent,amount).amount_increase()
+        print(f'The new value in the bank = {amount_in_bank}')
     if whitdrawal_choice == True:
-        whitdrawal = int(input('How much money do you want to whitdraw:'))
-        intake = 0
-        my_account_balance = Account(intake,whitdrawal,rent,amount)
-        #print(my_account_balance)
-        '''
+        amount_in_bank = Account(intake,whitdraw,rent,amount).amount_decrease()
+        print(f'The new value in the bank = {amount_in_bank}')
+
+            
+    
+
     
 
     
