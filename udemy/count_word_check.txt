@@ -1,1 +1,1 @@
-" Hey ho. This is a text file which checking if the count_word function works"
+" Hey ho. This is a text file which checking if the count_word function wor
