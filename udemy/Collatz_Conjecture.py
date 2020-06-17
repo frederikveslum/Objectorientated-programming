@@ -30,6 +30,6 @@ if __name__ == "__main__":
     my_collatz_con = collatz_con(n)
     print(f'With n = {n}, the algrithm used {my_collatz_con[1]} iteration.\nThe value of all iteration was; {my_collatz_con[0]}')
    
-
+# checking how this new comment looks like in github version control
 
 
