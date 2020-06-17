@@ -1,33 +1,28 @@
 from typing import List
-class CardDeck(object):
-    '''
-    '''
-    char = ['spade','heart','diamond','cluc',]
-    value = list(range(1,14))
-    carddecklist = ""
-    def __init__(self,n):
-        #self.char = char
-        self.n = n
-    
+class CardDeck:
+    suits = ('spade','heart','diamond','cluc')
+    ranks = ('Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Jack','Queen','King','Ace')
+    values = {'Two':2,'Three':3,'Four':4,'Five':5,'Six':6,'Seven':7,'Eight':8,'Nine':9,'Ten':10,'Jack':10,'Queen':10,'King':10,'Ace':11}
+    def __init__(self):
+        self.deck = []  # start with an empty list
+        for suit in suits:
+            for rank in ranks:
+                self.deck.append(Card(suit,rank))
+        
+                
     def __str__(self):
-        ''' Able to use print(Card()....()) '''
-        return(f'The chosen number is: {n}')
+        deck_comp = ''  # start with an empty string
+        for card in self.deck:
+            deck_comp += '\n '+card.__str__() # add each Card object's print string
+        return 'The deck has:' + deck_comp
+                
+    def shuffle(self):
+        random.shuffle(self.deck)
+        
+    def deal(self):
+        single_card = self.deck.pop()
+        return single_card
 
-    def CardDeckfunc(self):
-        for i in range(4):
-            for values in range(n):
-                carddecklist.append(f'{char[i]} + {values}')
-        return carddecklist
 
-
-
-
-
-if __name__ == "__main__":
-    n = 5
-    carddecklist = CardDeck(n).CardDeckfunc()
-    #print(f'{char} of {value}')
-    print(cardecklist)
-    
 
     
