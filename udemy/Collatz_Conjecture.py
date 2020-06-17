@@ -6,7 +6,7 @@ def collatz_con(n):
     '''
     Collatz conjecture -> famous algorithm
     INPUT: a number n>1
-    OUTPU: How many iteration needed in order to get the result 1
+    OUTPU: How many iteration needed in order to get the result 1 + the list of all n-values
     '''
     counter = 0
     n_list: list[int] =  []
